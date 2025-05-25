@@ -2,6 +2,8 @@
 
 This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cryptocurrency market data using **Apache Airflow**, **Python**, and the **CoinGecko API**.
 
+---
+
 ## 🚀 Features
 
 - Extracts top 10 cryptocurrencies by market cap from CoinGecko
@@ -13,14 +15,18 @@ This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cry
 ---
 
 ## 📁 Project Structure
+
+
 ├── dags/ # Airflow DAGs
 │ └── crypto_etl_dag.py # Main ETL DAG
-├── data / # Saved raw + transformed data (mounted volume)
+├── data/ # Saved raw + transformed data (mounted volume)
 ├── plugins/ # (Optional) custom operators/hooks
 ├── docker-compose.yml # Docker setup for Airflow + Postgres
 ├── .env.example # Environment variable template
 ├── .gitignore # Ignores real .env and logs
 └── README.md # This file
+
+
 
 ---
 
@@ -29,19 +35,19 @@ This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cry
 ### 1. Clone this repository
 
 ```bash
-githttps://github.com/IIsmail15/crypto_etl_dag.git
-cd crypto-etl-airflow
+git clone https://github.com/IIsmail15/crypto_etl_dag.git
+cd crypto_etl_dag
 
-```
-### 2. Create your .env file
+
+2. Create your .env file
 
 cp .env.example .env
 
-### 3. Create necessary folders 
+ 3. Create necessary folders 
 
 mkdir -p dags logs plugins output
 
-### 4. Build and run Airflow
+4. Build and run Airflow
 
 docker compose up --build
 
@@ -68,6 +74,11 @@ After the DAG runs successfully, check:
 
 ## 📜 License
 MIT — free to use, modify, and share.
+
+
+
+
+
 
 
 
