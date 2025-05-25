@@ -40,17 +40,28 @@ cd crypto_etl_dag
 ```
 
  ### 2. Create your .env file
+ 
 
+```
 cp .env.example .env
+
+```
 
 ### 3. Create necessary folders
 
-mkdir -p dags logs plugins output 
+
+```
+mkdir -p dags logs plugins output
+
+```
 
 ###  Build and run Airflow
 
+
+```
 docker compose up --build
 
+```
 Airflow UI will be available at: http://localhost:8080
 Login using the credentials from your .env file.
 
