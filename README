@@ -12,10 +12,10 @@ This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cry
 - Runs on Airflow with Docker Compose
 - Uses LocalExecutor with PostgreSQL as metadata DB
 
----
+
 
 ## 📁 Project Structure
-
+```
 
 ├── dags/ # Airflow DAGs
 │ └── crypto_etl_dag.py # Main ETL DAG
@@ -26,9 +26,9 @@ This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cry
 ├── .gitignore # Ignores real .env and logs
 └── README.md # This file
 
+```
 
 
----
 
 ## ⚙️ Setup Instructions
 
