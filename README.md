@@ -82,8 +82,8 @@ Login using the credentials from your .env file.
 
 After the DAG runs successfully, you should see:
 
-- `output/raw_crypto.json`
-- `output/crypto_prices.csv`
+- `data/raw_crypto.json`
+- `data/crypto_prices.csv`
 
 ---
 
