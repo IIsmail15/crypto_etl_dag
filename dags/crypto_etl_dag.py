@@ -18,6 +18,12 @@ import os
 ## JSON module helps read and write JSON data (which is how the API will return data) 
 import json
 
+#to connect to the Database 
+from sqlalchemy import create_engine 
+
+import psycopg2
+
+
 # This is the folder inside the Airflow container where our output files will be stored
 OUTPUT_DIR = "/opt/airflow/data"
 
@@ -64,7 +70,24 @@ def transform():
 
 
 def load(): 
-    print(f"data written to {TRANSFORMED_PATH}")  # we load it in step before but we are just priting a statement 
+
+    df = pd.read_csv(TRANSFORMED_PATH)
+
+    user ="aiflow"
+    password = "airflow"
+    host = "postgres"
+    port= "5432"
+    db= "airflow"
+
+    engine= create_engine(f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{db}")
+
+    df.to_sql("crypto_data", engine, if_exists="replace", index=False)
+
+    print("Data written to postgres table: crypto_prices")
+
+
+
+
 
 default_args = {
     "start_date": datetime(2023,1,1)

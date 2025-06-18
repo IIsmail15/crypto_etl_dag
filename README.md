@@ -17,14 +17,17 @@ This project demonstrates a simple Extract-Transform-Load (ETL) pipeline for cry
 ## 📁 Project Structure
 
 ```
-├── dags/ # Airflow DAGs
-│ └── crypto_etl_dag.py # Main ETL DAG
-├── data/ # Saved raw + transformed data (mounted volume)
-├── plugins/ # (Optional) custom operators/hooks
-├── docker-compose.yml # Docker setup for Airflow + Postgres
-├── .env.example # Environment variable template
-├── .gitignore # Ignores real .env and logs
-└── README.md # This file
+├── dags/                # Airflow DAGs
+│   └── crypto_etl_dag.py   # Main ETL DAG
+├── data/                # Saved raw + transformed data (mounted volume)
+├── plugins/             # (Optional) custom operators/hooks
+├── airflow.db           # SQLite database for Airflow metadata
+├── docker-compose.yml   # Docker setup for Airflow + Postgres
+├── .env.example         # Environment variable template
+├── .gitignore           # Ignores real .env and logs
+├── init_crypto.sql      # SQL script to initialize crypto DB schema
+├── README.md            # Project documentation
+└── requirements.txt     # Python dependencies
 
 
 ```
@@ -40,25 +43,19 @@ cd crypto_etl_dag
 ```
 
  ### 2. Create your .env file
- 
 
-```
 cp .env.example .env
 
 ```
 
+```
 ### 3. Create necessary folders
 
+mkdir -p dags logs plugins output 
 
 ```
-mkdir -p dags logs plugins output
-
-```
-
 ###  Build and run Airflow
 
-
-```
 docker compose up --build
 
 ```
