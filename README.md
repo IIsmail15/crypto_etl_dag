@@ -47,6 +47,7 @@ cd crypto_etl_dag
 cp .env.example .env
 
 ```
+cp .env.example .env
 
 ```
 ### 3. Create necessary folders
@@ -71,7 +72,7 @@ Login using the credentials from your .env file.
 
 1. **extract_crypto_data** – Fetches JSON from CoinGecko API  
 2. **transform_crypto_data** – Converts to DataFrame and saves CSV  
-3. **load_crypto_data** – Prints a confirmation (simulating a load step)
+3. **load_crypto_data** – load the data into a Postgres DB 
 
 ---
 
