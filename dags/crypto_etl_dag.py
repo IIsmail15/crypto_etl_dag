@@ -21,7 +21,7 @@ import json
 #to connect to the Database 
 from sqlalchemy import create_engine 
 
-import psycopg2
+
 
 
 # This is the folder inside the Airflow container where our output files will be stored
