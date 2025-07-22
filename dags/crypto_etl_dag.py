@@ -70,23 +70,14 @@ def transform():
 
 
 def load(): 
-
-    # 1. Read the transformed CSV
-    df = pd.read_csv(TRANSFORMED_PATH)
-
-    # 2. Set up database connection (credentials from .env)
-    user ="airflow"
-    password = "airflow"
-    host = "postgres"
-    port= "5432"
-    db= "crypto_data"
-
-    engine= create_engine(f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{db}")
-
-   # 3. Write to PostgreSQL
+    
+    df = pd.read_csv(os.getenv("TRANSFORMED_PATH"))
+    db_uri = os.getenv("AIRFLOW_CONN_POSTGRES_DEFAULT")
+    if not db_uri:
+        raise RuntimeError("Missing AIRFLOW_CONN_POSTGRES_DEFAULT")
+    engine = create_engine(db_uri)
     df.to_sql("coins", engine, if_exists="replace", index=False)
-
-    print("Data written to postgres table: crypto_prices")
+    print("✅ Data successfully written to PostgreSQL!")
 
 
 
